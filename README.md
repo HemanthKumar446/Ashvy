@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AshVy Interiors</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+  line-height: 1.6;
+  color: #333;
+  background: #fdf6f0; /* soft beige-pink */
+}
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+ header {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #2c3e50, #34495e);
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #f4b41a;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .portfolio img {
+      width: 100%;
+      height: 220px; /* same height for all */
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea, button {
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #f4b41a;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #d9990c;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <div>
+      <h1>AshVy Interiors</h1>
+      <p>Designing spaces that inspire</p>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At AshVy Interiors, we specialize in creating stylish, functional, and personalized spaces. From modern homes to luxury offices, we transform your ideas into reality with innovative interior design solutions.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Residential Design</h3>
+        <p>We bring elegance and comfort to your living spaces with custom designs tailored to your lifestyle.</p>
+      </div>
+      <div class="card">
+        <h3>Office Design</h3>
+        <p>Create productive and inspiring workspaces with modern interior design solutions.</p>
+      </div>
+      <div class="card">
+        <h3>Renovation</h3>
+        <p>Give your old space a fresh, modern look with our expert renovation services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio">
+  <img src="images/Bedroom.jpg" alt="Bedroom">
+  <img src="images/Kitchen.jpg" alt="Kitchen">
+  <img src="images/Living-room.webp" alt="Living Room">
+  <img src="images/Office.jpg" alt="Office">
+</div>
+  </section>
+
+  <!-- Contact -->
+
+   
+ <form id="contact-form">
+    <h2>Contact us</h2>
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("2HMonNsbM6lNAR9Ob"); // Replace with your EmailJS User ID
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_uvirwti", "template_qmh8arb", this)
+      .then(function() {
+        alert("✅ Message sent successfully!");
+      }, function(error) {
+        alert("❌ Failed to send: " + JSON.stringify(error));
+      });
+  });
+</script>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AshVy Interiors. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
