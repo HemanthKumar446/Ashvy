@@ -215,17 +215,20 @@
   <!-- Contact -->
 
    
- <form id="contact-form">
-    <h2>Contact us</h2>
+  <form id="contact-form">
+  <h2>Contact us</h2>
+
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="email" name="email" placeholder="Your Email" required>
+  <input type="tel" name="phone" placeholder="Your Phone Number" required>
   <textarea name="message" placeholder="Your Message" required></textarea>
+
   <button type="submit">Send</button>
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 <script>
-  (function(){
+  (function() {
     emailjs.init("2HMonNsbM6lNAR9Ob"); // Replace with your EmailJS User ID
   })();
 
@@ -248,4 +251,5 @@
   </footer>
 </body>
 </html>
+
 
