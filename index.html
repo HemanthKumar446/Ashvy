@@ -62,15 +62,15 @@
     .logo span { font-size: 1rem; font-weight: bold; color: #2c3e50; white-space: nowrap; }
 
     nav {
-      display: flex; gap: 15px; flex-wrap: nowrap;
+      display: flex; gap: 15px;
     }
     nav a {
       color: #2c3e50; text-decoration: none; font-weight: 500;
-      font-size: 0.9rem; white-space: nowrap; transition: color 0.3s;
+      font-size: 0.9rem; transition: color 0.3s;
     }
     nav a:hover { color: #d4a017; }
 
-    /* ===== Hamburger Menu (hidden on desktop) ===== */
+    /* ===== Hamburger Menu ===== */
     .menu-toggle {
       display: none; flex-direction: column; cursor: pointer; gap: 5px;
     }
@@ -78,7 +78,6 @@
       width: 25px; height: 3px; background: #2c3e50; border-radius: 2px;
     }
 
-    /* ===== Mobile Nav ===== */
     @media (max-width: 768px) {
       nav {
         position: absolute; top: 60px; right: 15px;
@@ -89,7 +88,6 @@
       nav.active { display: flex; }
       .menu-toggle { display: flex; }
     }
-
     /* ===== Hero Section ===== */
     .hero {
       background: url("Background.jpg") no-repeat center center;
@@ -435,5 +433,6 @@
   </footer>
 </body>
 </html>
+
 
 
