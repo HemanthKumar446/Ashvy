@@ -380,13 +380,19 @@
       grid.appendChild(div);
     });
 
-    // Hide header after clicking nav link
+    // Hide header permanently after clicking nav link
     const header = document.getElementById("main-header");
     document.querySelectorAll("nav a").forEach(link => {
       link.addEventListener("click", () => {
         header.classList.add("hidden");
-        setTimeout(() => header.classList.remove("hidden"), 1200); // re-show after scroll
       });
+    });
+
+    // Show header again only if user scrolls back to top
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 50) {
+        header.classList.remove("hidden");
+      }
     });
   </script>
 
