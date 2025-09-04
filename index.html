@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,9 +17,7 @@
       color: #2c3e50;
       background: #f9f9f9;
     }
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     h2 {
       text-align: center;
       margin-bottom: 30px;
@@ -61,18 +59,16 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       position: fixed;
-      top: 40px; /* below scrolling header */
+      top: 40px;
       width: 100%;
       z-index: 1000;
     }
-
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      flex: 1; /* pushes nav to middle */
+      flex: 1;
     }
-
     .logo img {
       height: 45px;
       width: auto;
@@ -83,23 +79,19 @@
       font-weight: bold;
       color: #2c3e50;
     }
-
     nav {
-      flex: 2; /* makes nav occupy center space */
+      flex: 2;
       display: flex;
       justify-content: center;
       gap: 30px;
     }
-
     nav a {
       color: #2c3e50;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
-    nav a:hover {
-      color: #d4a017;
-    }
+    nav a:hover { color: #d4a017; }
 
     /* ===== Hero Section ===== */
     .hero {
@@ -123,6 +115,7 @@
       position: relative;
       z-index: 1;
       color: #fff;
+      padding: 0 15px;
     }
     .hero-content h1 {
       font-size: 3.5rem;
@@ -192,9 +185,7 @@
       border-radius: 12px;
       transition: transform 0.3s ease;
     }
-    .portfolio img:hover {
-      transform: scale(1.05);
-    }
+    .portfolio img:hover { transform: scale(1.05); }
 
     /* ===== Solutions ===== */
     .solutions-grid {
@@ -279,9 +270,7 @@
       font-weight: bold;
       text-decoration: none;
     }
-    .contact-info a:hover {
-      color: #d4a017;
-    }
+    .contact-info a:hover { color: #d4a017; }
 
     /* ===== Footer ===== */
     footer {
@@ -295,13 +284,44 @@
       color: #f4b41a;
       text-decoration: none;
     }
-    footer a:hover {
-      text-decoration: underline;
+    footer a:hover { text-decoration: underline; }
+
+    /* ===== Responsive Adjustments ===== */
+    @media (max-width: 992px) {
+      nav { gap: 20px; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content h2 { font-size: 1.4rem; }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 12px 20px;
+      }
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .hero {
+        margin-top: 140px;
+        padding: 0 15px;
+      }
+      .hero-content h1 { font-size: 2.2rem; }
+      .hero-content h2 { font-size: 1.2rem; }
+      section { padding: 50px 15px; }
+      .card { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .scroll-header { font-size: 0.9rem; }
+      .logo img { height: 35px; }
+      .logo span { font-size: 1rem; }
+      .hero-content h1 { font-size: 1.8rem; }
+      .hero-content h2 { font-size: 1rem; }
+      nav { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-
   <!-- Scrolling Header -->
   <div class="scroll-header">
     <span>✨ Welcome to AshVy Interiors - Transforming Dreams into Elegant Spaces ✨</span>
@@ -378,9 +398,7 @@
       "TV Units","Study Tables","False Ceiling","Lights","Wallpaper","Wall Paint",
       "Bathroom","Pooja Unit","Foyer Designs","Movable Furniture","Kids Bedroom"
     ];
-    function shuffle(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
+    function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
     const grid = document.getElementById("solutions-grid");
     shuffle([...solutions]).forEach(name => {
       const div = document.createElement("div");
@@ -414,10 +432,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script>
-    (function() {
-      emailjs.init("2HMonNsbM6lNAR9Ob");
-    })();
-
+    (function() { emailjs.init("2HMonNsbM6lNAR9Ob"); })();
     const form = document.getElementById("contact-form");
     form.addEventListener("submit", function(e) {
       e.preventDefault();
