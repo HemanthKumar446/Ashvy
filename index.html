@@ -52,53 +52,43 @@
     /* ===== Header ===== */
     /* ===== Header ===== */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 15px;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 40px;
-      width: 100%;
-      z-index: 1000;
-      flex-wrap: nowrap; /* keep items in single line */
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 15px; background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px); box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: fixed; top: 40px; width: 100%; z-index: 1000;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-    .logo img {
-      height: 35px;
-      width: auto;
-      border-radius: 6px;
-    }
-    .logo span {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #2c3e50;
-      white-space: nowrap;
-    }
+    .logo { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .logo img { height: 35px; width: auto; border-radius: 6px; }
+    .logo span { font-size: 1rem; font-weight: bold; color: #2c3e50; white-space: nowrap; }
+
     nav {
-      display: flex;
-      justify-content: flex-end;
-      flex-wrap: nowrap;
-      gap: 12px;
-      flex: 1;
-      overflow-x: auto; /* allows swipe on very small screens */
+      display: flex; gap: 15px; flex-wrap: nowrap;
     }
     nav a {
-      color: #2c3e50;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      white-space: nowrap;
-      transition: color 0.3s;
+      color: #2c3e50; text-decoration: none; font-weight: 500;
+      font-size: 0.9rem; white-space: nowrap; transition: color 0.3s;
     }
     nav a:hover { color: #d4a017; }
+
+    /* ===== Hamburger Menu (hidden on desktop) ===== */
+    .menu-toggle {
+      display: none; flex-direction: column; cursor: pointer; gap: 5px;
+    }
+    .menu-toggle div {
+      width: 25px; height: 3px; background: #2c3e50; border-radius: 2px;
+    }
+
+    /* ===== Mobile Nav ===== */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute; top: 60px; right: 15px;
+        background: white; flex-direction: column; gap: 12px;
+        padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: none;
+      }
+      nav.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
 
     /* ===== Hero Section ===== */
     .hero {
@@ -295,7 +285,7 @@
 
     /* ===== Responsive Adjustments ===== */
      /* Responsive Nav Font Sizes */
-    @media (max-width: 768px) {
+   /* @media (max-width: 768px) {
       nav a {
         font-size: 0.85rem;
       }
@@ -311,7 +301,7 @@
       .logo img {
         height: 28px;
       }
-    }
+    } */
   </style>
 </head>
 <body>
@@ -445,4 +435,5 @@
   </footer>
 </body>
 </html>
+
 
