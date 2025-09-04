@@ -59,9 +59,13 @@
       width: 100%;
       z-index: 1000;
       display: flex;
-      flex-direction: column; /* logo on top, nav below */
+      flex-direction: column;
       align-items: center;
       padding: 12px 15px;
+      transition: transform 0.4s ease;
+    }
+    header.hidden {
+      transform: translateY(-120%);
     }
     .logo {
       display: flex;
@@ -105,7 +109,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      margin-top: 160px; /* more space because header is taller */
+      margin-top: 160px;
       position: relative;
     }
     .hero::after {
@@ -297,7 +301,7 @@
   </div>
 
   <!-- Header -->
-  <header>
+  <header id="main-header">
     <div class="logo">
       <img src="AshVyLogo.jpg" alt="AshVy Interiors Logo">
       <span>AshVy Interiors</span>
@@ -374,6 +378,15 @@
       div.className = "solution-card";
       div.textContent = name;
       grid.appendChild(div);
+    });
+
+    // Hide header after clicking nav link
+    const header = document.getElementById("main-header");
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        header.classList.add("hidden");
+        setTimeout(() => header.classList.remove("hidden"), 1200); // re-show after scroll
+      });
     });
   </script>
 
