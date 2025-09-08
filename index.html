@@ -89,7 +89,15 @@
     }
     .hero-content { position: relative; z-index: 1; color: #fff; padding: 0 15px; }
     .hero-content h1 { font-size: 3.5rem; font-weight: bold; }
-    .hero-content h2 { font-size: 1.8rem; margin-top: 10px; font-weight: normal; color: #adb1b1; }
+    #tagline {
+      font-size: 1.8rem;
+      margin-top: 10px;
+      font-weight: normal;
+      color: #adb1b1;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    #tagline.show { opacity: 1; }
 
     /* ===== Sections ===== */
     section { padding: 70px 20px; max-width: 1200px; margin: auto; border-radius: 12px; }
@@ -99,6 +107,38 @@
     #solutions { background: #fff7f0; }
     #contact { background: #f0f0f0; }
     #about p { font-size: 1.1rem; text-align: center; max-width: 800px; margin: auto; }
+
+    /* ===== Services ===== */
+    .services { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
+    .card {
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 25px; width: 300px; text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card h3 { margin-bottom: 12px; color: #d4a017; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 8px 18px rgba(0,0,0,0.15); }
+
+    /* ===== Portfolio ===== */
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .portfolio img {
+      width: 100%; height: 220px; object-fit: cover; border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    .portfolio img:hover { transform: scale(1.05); }
+
+    /* ===== Solutions ===== */
+    .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 30px; }
+    .solution-card {
+      background: #fff; border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px; font-size: 1rem; font-weight: bold; text-align: center;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .solution-card:hover {
+      background: linear-gradient(135deg, #f4b41a, #d4a017);
+      color: #fff; transform: translateY(-8px);
+    }
 
     /* ===== Contact ===== */
     .contact-container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
@@ -111,17 +151,11 @@
     .contact-card:hover { transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,0.2); }
     .contact-card h3 { margin-bottom: 20px; color: #2c3e50; text-align: center; }
 
-    /* Form styles */
-    #contact-form label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 500;
-    }
-    #contact-form label span {
-      color: red;
-    }
+    #contact-form label { display: block; margin-bottom: 5px; font-weight: 500; }
+    #contact-form label span { color: red; }
     #contact-form input, #contact-form textarea {
-      width: 100%; padding: 12px; margin-bottom: 5px; border: 1px solid #ccc; border-radius: 8px;
+      width: 100%; padding: 12px; margin-bottom: 5px;
+      border: 1px solid #ccc; border-radius: 8px;
     }
     #contact-form button {
       width: 100%; padding: 12px;
@@ -131,17 +165,8 @@
     }
     #contact-form button:hover { background: linear-gradient(135deg, #1a252f, #b58d0e); }
 
-    /* Inline error styles */
-    .error {
-      color: red;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-      display: none;
-    }
-    input.invalid, textarea.invalid {
-      border-color: red;
-      background: #ffe6e6;
-    }
+    .error { color: red; font-size: 0.9rem; margin-bottom: 10px; display: none; }
+    input.invalid, textarea.invalid { border-color: red; background: #ffe6e6; }
 
     /* ===== Footer ===== */
     footer { background: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 40px; }
@@ -174,8 +199,41 @@
   <section class="hero">
     <div class="hero-content">
       <h1>AshVy Interiors</h1>
-      <h2>Your Dream, <span>We Design</span></h2>
+      <h2 id="tagline"></h2>
     </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>At AshVy Interiors, we specialize in creating stylish, functional, and personalized spaces that reflect your lifestyle and vision. From homes to offices, we blend creativity with practicality to deliver interiors that inspire.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card"><h3>Residential Design</h3><p>We bring elegance and comfort to your living spaces with custom designs tailored to your lifestyle.</p></div>
+      <div class="card"><h3>Office Design</h3><p>Create productive and inspiring workspaces with modern interior design solutions.</p></div>
+      <div class="card"><h3>Renovation</h3><p>Give your old space a fresh, modern look with our expert renovation services.</p></div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio">
+      <img src="Bedroom.jpg" alt="Bedroom">
+      <img src="Kitchen.jpg" alt="Kitchen">
+      <img src="Living-room.webp" alt="Living Room">
+      <img src="Office.jpg" alt="Office">
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section id="solutions">
+    <h2>End-to-End Interior Solutions</h2>
+    <div class="solutions-grid" id="solutions-grid"></div>
   </section>
 
   <!-- Contact -->
@@ -212,71 +270,90 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 AshVy Interiors. All Rights Reserved.</p>
     <p><strong>Email:</strong> <a href="mailto:ashvyinteriors@gmail.com">ashvyinteriors@gmail.com</a></p>
     <p><strong>Phone:</strong> <a href="tel:+917019540879">+91 70195 40879</a></p>
   </footer>
 
-  <!-- ===== EmailJS Integration + Custom Validation ===== -->
+  <!-- ===== JS Section ===== -->
+  <script>
+    // Rotating Taglines
+    const taglines = [
+      "Transforming Dreams into Elegant Spaces",
+      "Designing Spaces, Creating Memories",
+      "Where Creativity Meets Comfort",
+      "Your Vision, Our Interior Expertise",
+      "Elevating Lifestyles Through Design"
+    ];
+    const taglineElement = document.getElementById("tagline");
+    let index = 0;
+    function showTagline() {
+      taglineElement.classList.remove("show");
+      setTimeout(() => {
+        taglineElement.textContent = taglines[index];
+        taglineElement.classList.add("show");
+        index = (index + 1) % taglines.length;
+      }, 500);
+    }
+    showTagline();
+    setInterval(showTagline, 4000);
+
+    // Solutions Grid
+    const solutions = ["Modular Kitchen","Storage & Wardrobe","Crockery Units","Space Saving Furniture","TV Units","Study Tables","False Ceiling","Lights","Wallpaper","Wall Paint","Bathroom","Pooja Unit","Foyer Designs","Movable Furniture","Kids Bedroom"];
+    const grid = document.getElementById("solutions-grid");
+    solutions.sort(() => Math.random() - 0.5).forEach(name => {
+      const div = document.createElement("div");
+      div.className = "solution-card";
+      div.textContent = name;
+      grid.appendChild(div);
+    });
+
+    // Hide header when clicking nav links
+    const header = document.getElementById("main-header");
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+        header.classList.add("hidden");
+      });
+    });
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 50) header.classList.remove("hidden");
+    });
+  </script>
+
+  <!-- ===== EmailJS Integration + Validation ===== -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script>
     (function() { emailjs.init("2HMonNsbM6lNAR9Ob"); })();
-
     const form = document.getElementById("contact-form");
 
     function validateForm() {
       let valid = true;
-
-      // Name
       const name = document.getElementById("name");
       const nameError = document.getElementById("name-error");
-      if (!name.value.trim()) {
-        name.classList.add("invalid");
-        nameError.style.display = "block";
-        valid = false;
-      } else {
-        name.classList.remove("invalid");
-        nameError.style.display = "none";
-      }
+      if (!name.value.trim()) { name.classList.add("invalid"); nameError.style.display = "block"; valid = false; }
+      else { name.classList.remove("invalid"); nameError.style.display = "none"; }
 
-      // Email
       const email = document.getElementById("email");
       const emailError = document.getElementById("email-error");
       const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
-      if (!emailPattern.test(email.value.trim())) {
-        email.classList.add("invalid");
-        emailError.style.display = "block";
-        valid = false;
-      } else {
-        email.classList.remove("invalid");
-        emailError.style.display = "none";
-      }
+      if (!emailPattern.test(email.value.trim())) { email.classList.add("invalid"); emailError.style.display = "block"; valid = false; }
+      else { email.classList.remove("invalid"); emailError.style.display = "none"; }
 
-      // Phone
       const phone = document.getElementById("phone");
       const phoneError = document.getElementById("phone-error");
       const phonePattern = /^(\+91[\-\s]?)?[6-9]\d{9}$/;
-      if (!phonePattern.test(phone.value.trim())) {
-        phone.classList.add("invalid");
-        phoneError.style.display = "block";
-        valid = false;
-      } else {
-        phone.classList.remove("invalid");
-        phoneError.style.display = "none";
-      }
+      if (!phonePattern.test(phone.value.trim())) { phone.classList.add("invalid"); phoneError.style.display = "block"; valid = false; }
+      else { phone.classList.remove("invalid"); phoneError.style.display = "none"; }
 
-      // Message
       const message = document.getElementById("message");
       const messageError = document.getElementById("message-error");
-      if (!message.value.trim()) {
-        message.classList.add("invalid");
-        messageError.style.display = "block";
-        valid = false;
-      } else {
-        message.classList.remove("invalid");
-        messageError.style.display = "none";
-      }
+      if (!message.value.trim()) { message.classList.add("invalid"); messageError.style.display = "block"; valid = false; }
+      else { message.classList.remove("invalid"); messageError.style.display = "none"; }
 
       return valid;
     }
@@ -285,13 +362,6 @@
       e.preventDefault();
       if (validateForm()) {
         emailjs.sendForm("service_uvirwti", "template_qmh8arb", this)
-          .then(() => {
-            alert("✅ Message sent successfully!");
-            form.reset();
-          }, error => alert("❌ Failed to send: " + JSON.stringify(error))
-        );
+          .then(() => { alert("✅ Message sent successfully!"); form.reset(); },
+                error => alert("❌ Failed to send: " + JSON.stringify(error)));
       }
-    });
-  </script>
-</body>
-</html>
