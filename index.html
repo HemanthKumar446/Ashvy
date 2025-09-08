@@ -90,14 +90,12 @@
     .hero-content { position: relative; z-index: 1; color: #fff; padding: 0 15px; }
     .hero-content h1 { font-size: 3.5rem; font-weight: bold; }
     #tagline {
-      font-size: 1.8rem;
-      margin-top: 10px;
-      font-weight: normal;
-      color: #adb1b1;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+      font-size: 2rem;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #f4b41a;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     }
-    #tagline.show { opacity: 1; }
 
     /* ===== Sections ===== */
     section { padding: 70px 20px; max-width: 1200px; margin: auto; border-radius: 12px; }
@@ -151,6 +149,28 @@
     .contact-card:hover { transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,0.2); }
     .contact-card h3 { margin-bottom: 20px; color: #2c3e50; text-align: center; }
 
+    /* Contact Info Styling */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+      font-size: 1.1rem;
+    }
+    .contact-info p {
+      margin: 0;
+    }
+    .contact-info a {
+      color: #2c3e50;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-info a:hover {
+      color: #d4a017;
+    }
+
     #contact-form label { display: block; margin-bottom: 5px; font-weight: 500; }
     #contact-form label span { color: red; }
     #contact-form input, #contact-form textarea {
@@ -199,7 +219,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1>AshVy Interiors</h1>
-      <h2 id="tagline"></h2>
+      <h2 id="tagline">Your Dream, We Design</h2>
     </div>
   </section>
 
@@ -240,6 +260,7 @@
   <section id="contact">
     <h2>Contact Us</h2>
     <div class="contact-container">
+      <!-- Contact Form -->
       <div class="contact-card">
         <h3>Send us a Message</h3>
         <form id="contact-form" novalidate>
@@ -262,10 +283,12 @@
           <button type="submit">Send</button>
         </form>
       </div>
+
+      <!-- Contact Info -->
       <div class="contact-card contact-info">
         <h3>Get in Touch</h3>
-        <p><strong>Email:</strong> <a href="mailto:ashvyinteriors@gmail.com">ashvyinteriors@gmail.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+917019540879">+91 70195 40879</a></p>
+        <p>📧 <a href="mailto:ashvyinteriors@gmail.com">ashvyinteriors@gmail.com</a></p>
+        <p>📞 <a href="tel:+917019540879">+91 70195 40879</a></p>
       </div>
     </div>
   </section>
@@ -279,29 +302,12 @@
 
   <!-- ===== JS Section ===== -->
   <script>
-    // Rotating Taglines
-    const taglines = [
-      "Transforming Dreams into Elegant Spaces",
-      "Designing Spaces, Creating Memories",
-      "Where Creativity Meets Comfort",
-      "Your Vision, Our Interior Expertise",
-      "Elevating Lifestyles Through Design"
-    ];
-    const taglineElement = document.getElementById("tagline");
-    let index = 0;
-    function showTagline() {
-      taglineElement.classList.remove("show");
-      setTimeout(() => {
-        taglineElement.textContent = taglines[index];
-        taglineElement.classList.add("show");
-        index = (index + 1) % taglines.length;
-      }, 500);
-    }
-    showTagline();
-    setInterval(showTagline, 4000);
-
     // Solutions Grid
-    const solutions = ["Modular Kitchen","Storage & Wardrobe","Crockery Units","Space Saving Furniture","TV Units","Study Tables","False Ceiling","Lights","Wallpaper","Wall Paint","Bathroom","Pooja Unit","Foyer Designs","Movable Furniture","Kids Bedroom"];
+    const solutions = [
+      "Modular Kitchen","Storage & Wardrobe","Crockery Units","Space Saving Furniture","TV Units",
+      "Study Tables","False Ceiling","Lights","Wallpaper","Wall Paint",
+      "Bathroom","Pooja Unit","Foyer Designs","Movable Furniture","Kids Bedroom"
+    ];
     const grid = document.getElementById("solutions-grid");
     solutions.sort(() => Math.random() - 0.5).forEach(name => {
       const div = document.createElement("div");
@@ -365,3 +371,7 @@
           .then(() => { alert("✅ Message sent successfully!"); form.reset(); },
                 error => alert("❌ Failed to send: " + JSON.stringify(error)));
       }
+    });
+  </script>
+</body>
+</html>
