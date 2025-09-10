@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -52,23 +52,12 @@
     }
     header.hidden { transform: translateY(-120%); }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
+    .logo { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
     .logo img { height: 40px; border-radius: 6px; }
     .logo span { font-size: 1.2rem; font-weight: bold; color: #2c3e50; white-space: nowrap; }
 
     nav { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-    nav a {
-      color: #2c3e50;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
+    nav a { color: #2c3e50; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.3s; }
     nav a:hover { color: #d4a017; }
 
     /* ===== Hero ===== */
@@ -89,13 +78,7 @@
     }
     .hero-content { position: relative; z-index: 1; color: #fff; padding: 0 15px; }
     .hero-content h1 { font-size: 3.5rem; font-weight: bold; }
-    #tagline {
-      font-size: 2rem;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #f4b41a;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
+    #tagline { font-size: 2rem; margin-top: 15px; font-weight: bold; color: #f4b41a; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); }
 
     /* ===== Sections ===== */
     section { padding: 70px 20px; max-width: 1200px; margin: auto; border-radius: 12px; }
@@ -119,10 +102,7 @@
 
     /* ===== Portfolio ===== */
     .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .portfolio img {
-      width: 100%; height: 220px; object-fit: cover; border-radius: 12px;
-      transition: transform 0.3s ease;
-    }
+    .portfolio img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; transition: transform 0.3s ease; }
     .portfolio img:hover { transform: scale(1.05); }
 
     /* ===== Solutions ===== */
@@ -133,10 +113,7 @@
       padding: 20px; font-size: 1rem; font-weight: bold; text-align: center;
       cursor: pointer; transition: all 0.3s ease;
     }
-    .solution-card:hover {
-      background: linear-gradient(135deg, #f4b41a, #d4a017);
-      color: #fff; transform: translateY(-8px);
-    }
+    .solution-card:hover { background: linear-gradient(135deg, #f4b41a, #d4a017); color: #fff; transform: translateY(-8px); }
 
     /* ===== Contact ===== */
     .contact-container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
@@ -148,28 +125,7 @@
     }
     .contact-card:hover { transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,0.2); }
     .contact-card h3 { margin-bottom: 20px; color: #2c3e50; text-align: center; }
-
-    /* Contact Info Styling */
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 15px;
-      font-size: 1.1rem;
-    }
-    .contact-info p {
-      margin: 0;
-    }
-    .contact-info a {
-      color: #2c3e50;
-      font-weight: bold;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .contact-info a:hover {
-      color: #d4a017;
-    }
+    .contact-card p { text-align: center; font-size: 1.1rem; margin: 8px 0; }
 
     #contact-form label { display: block; margin-bottom: 5px; font-weight: 500; }
     #contact-form label span { color: red; }
@@ -284,11 +240,20 @@
         </form>
       </div>
 
-      <!-- Contact Info -->
+      <!-- Contact Info + WhatsApp -->
       <div class="contact-card contact-info">
         <h3>Get in Touch</h3>
-        <p>📧 <a href="mailto:ashvyinteriors@gmail.com">ashvyinteriors@gmail.com</a></p>
-        <p>📞 <a href="tel:+917019540879">+91 70195 40879</a></p>
+        <p><strong>Email:</strong> <a href="mailto:ashvyinteriors@gmail.com">ashvyinteriors@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+917019540879">+91 70195 40879</a></p>
+
+        <!-- WhatsApp Button -->
+        <div style="text-align:center; margin-top: 25px;">
+          <h4>Chat on WhatsApp</h4>
+          <a id="whatsapp-btn" href="#" target="_blank" 
+             style="display:inline-block; padding:12px 25px; background:#25D366; color:white; border-radius:10px; font-size:1rem; font-weight:bold; text-decoration:none;">
+             💬 WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -326,9 +291,7 @@
         header.classList.add("hidden");
       });
     });
-    window.addEventListener("scroll", () => {
-      if (window.scrollY < 50) header.classList.remove("hidden");
-    });
+    window.addEventListener("scroll", () => { if (window.scrollY < 50) header.classList.remove("hidden"); });
   </script>
 
   <!-- ===== EmailJS Integration + Validation ===== -->
@@ -369,9 +332,17 @@
       if (validateForm()) {
         emailjs.sendForm("service_uvirwti", "template_qmh8arb", this)
           .then(() => { alert("✅ Message sent successfully!"); form.reset(); },
-                error => alert("❌ Failed to send: " + JSON.stringify(error)));
+                error => alert("❌ Failed to send message: " + JSON.stringify(error)));
       }
     });
+  </script>
+
+  <!-- ===== WhatsApp Integration ===== -->
+  <script>
+    const whatsappNumber = "+917019540879";
+    const messageText = "Hello AshVy Interiors! I am interested in your services. Can you please provide more details?";
+    const whatsappBtn = document.getElementById("whatsapp-btn");
+    whatsappBtn.href = `https://wa.me/${whatsappNumber.replace(/\D/g,'')}?text=${encodeURIComponent(messageText)}`;
   </script>
 </body>
 </html>
